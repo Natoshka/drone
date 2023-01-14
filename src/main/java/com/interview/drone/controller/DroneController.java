@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -38,7 +39,7 @@ public class DroneController {
 
     @ApiOperation("Registering a drone")
     @PostMapping("/register")
-    public DroneDto registerDrone(@ApiParam("Drone data") @RequestBody DroneDto droneDto) {
+    public DroneDto registerDrone(@ApiParam("Drone data") @RequestBody @Valid DroneDto droneDto) {
         return droneMapper.toDto(
             droneService.registerDrone(
                 droneMapper.toEntity(droneDto)));
@@ -46,7 +47,7 @@ public class DroneController {
 
     @ApiOperation("Loading a drone with medication items")
     @PostMapping("/load")
-    public DroneDto loadDrone(@ApiParam("Drone loading data") @RequestBody LoadDroneDto droneDto) {
+    public DroneDto loadDrone(@ApiParam("Drone loading data") @RequestBody @Valid LoadDroneDto droneDto) {
         return droneMapper.toDto(
             droneService.loadDrone(droneDto));
     }

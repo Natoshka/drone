@@ -19,11 +19,11 @@ import java.util.List;
 @NoArgsConstructor
 public class LoadDroneDto {
 
-    @NotNull
+    @NotNull(message = "Drone identification can not be null")
     @ApiModelProperty("Drone identification")
     private Long droneId;
 
-    @NotEmpty
+    @NotEmpty(message = "List of medication can not be null")
     @ApiModelProperty("List of medication identifications")
     private List<Long> medicationIds;
 }

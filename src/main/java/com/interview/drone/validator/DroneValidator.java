@@ -4,16 +4,12 @@ import com.interview.drone.entity.Drone;
 import com.interview.drone.exception.DroneModelException;
 import org.springframework.stereotype.Component;
 
-import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Component
 public class DroneValidator implements BaseValidator<Drone> {
 
     public void validate(Drone drone) {
-        if (isNull(drone.getBatteryCapacity()) || isNull(drone.getWeightLimit())) {
-            throw new DroneModelException("The battery capacity and weight limit are required fields");
-        }
         if (nonNull(drone.getId())) {
             throw new DroneModelException("The id should be generated on server side and cannot be passed from ui");
         }

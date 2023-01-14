@@ -22,7 +22,7 @@ public class MedicationDto {
     @ApiModelProperty("Name")
     private String name;
 
-    @NotNull
+    @NotNull(message = "Weight can not be null")
     @ApiModelProperty("Weight")
     private Integer weight;
 

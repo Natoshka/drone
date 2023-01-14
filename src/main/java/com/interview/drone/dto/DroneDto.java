@@ -23,11 +23,12 @@ public class DroneDto {
     @ApiModelProperty("Serial number")
     private String serialNumber;
 
-    @NotNull
+    @NotNull(message = "Weight Limit can not be null")
     @ApiModelProperty("Weight limit")
     private Integer weightLimit;
 
     @ApiModelProperty("Battery capacity")
+    @NotNull(message = "Battery capacity can not be null")
     private Integer batteryCapacity;
 
     @ApiModelProperty("State")

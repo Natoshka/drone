@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +35,7 @@ public class MedicationController {
 
     @ApiOperation("Add new medication")
     @PostMapping(value = "/medication/add")
-    public MedicationDto addMedication(@ApiParam("Medication data") @RequestBody MedicationDto medicationDto) {
+    public MedicationDto addMedication(@ApiParam("Medication data") @RequestBody @Valid MedicationDto medicationDto) {
         return medicationMapper.toDto(
             medicationService.addMedication(
                 medicationMapper.toEntity(medicationDto)));
