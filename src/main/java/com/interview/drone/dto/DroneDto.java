@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @Builder
 @ApiModel("Drone data")
@@ -15,12 +17,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DroneDto {
 
-    @ApiModelProperty("Identificator")
+    @ApiModelProperty("Identification")
     private Long id;
 
     @ApiModelProperty("Serial number")
     private String serialNumber;
 
+    @NotNull
     @ApiModelProperty("Weight limit")
     private Integer weightLimit;
 

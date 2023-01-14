@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.regex.Pattern;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Component
@@ -16,6 +17,9 @@ public class MedicationValidator implements BaseValidator<Medication> {
     private static final Pattern COMPILED_BASE64_PATTERN = Pattern.compile("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$");
 
     public void validate(Medication medication) {
+        if (isNull(medication.getWeight())) {
+            throw new MedicationModelException("The weight is the required field");
+        }
         if (nonNull(medication.getId())) {
             throw new MedicationModelException("The id should be generated on server side and cannot be passed from ui");
         }

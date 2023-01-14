@@ -20,7 +20,7 @@ values (4, '009890', 4, 500, 50, 'IDLE');
 insert into drone (id, serial_number, model_id, weight_limit, battery_capacity, state)
 values (5, '54678', 3, 500, 24, 'IDLE');
 insert into drone (id, serial_number, model_id, weight_limit, battery_capacity, state)
-values (6, 'hj8906', 3, 500, 100, 'IDLE');
+values (6, 'hj8906', 3, 500, 100, 'LOADED');
 
 alter sequence seq_drone restart with (select coalesce(max(id), 0) + 1 from drone);
 

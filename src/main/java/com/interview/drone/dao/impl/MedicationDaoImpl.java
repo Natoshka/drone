@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -23,5 +25,10 @@ public class MedicationDaoImpl implements MedicationDao {
     @Override
     public Medication save(Medication medication) {
         return medicationRepository.save(medication);
+    }
+
+    @Override
+    public Set<Medication> getMedicationByIds(List<Long> medicationIds) {
+        return new HashSet<>(medicationRepository.findAllById(medicationIds));
     }
 }

@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @Builder
 @ApiModel("Medication data")
@@ -14,12 +16,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MedicationDto {
 
-    @ApiModelProperty("Identificator")
+    @ApiModelProperty("Identification")
     private Long id;
 
     @ApiModelProperty("Name")
     private String name;
 
+    @NotNull
     @ApiModelProperty("Weight")
     private Integer weight;
 
