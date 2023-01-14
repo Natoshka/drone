@@ -15,6 +15,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DroneDto {
 
+    @ApiModelProperty("Identificator")
+    private Long id;
+
     @ApiModelProperty("Serial number")
     private String serialNumber;
 

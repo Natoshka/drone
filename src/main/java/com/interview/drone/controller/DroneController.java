@@ -21,7 +21,7 @@ public class DroneController {
 
     @ApiOperation("Register new drone")
     @PostMapping(value = "/register")
-    public DroneDto register(@ApiParam("Drone date") @RequestBody DroneDto droneDto) {
+    public DroneDto register(@ApiParam("Drone data") @RequestBody DroneDto droneDto) {
         return droneMapper.toDto(
             droneService.registerDrone(
                 droneMapper.toEntity(droneDto)));
